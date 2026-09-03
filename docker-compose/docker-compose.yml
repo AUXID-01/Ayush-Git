@@ -1,0 +1,36 @@
+services:  # Services/containers we want to add
+
+  frontend:
+    image: nginx
+    ports:
+      - "8080:80"   # host_port:container_port
+
+  # Alternative: Build frontend using a Dockerfile
+  # frontend1:
+  #   build: ./frontend   # Location of Dockerfile
+  #   ports:
+  #     - "8080:80"
+
+
+  backend:
+    image: nginx
+
+
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend_net
+
+
+# Define named volumes outside services
+volumes:
+  db_data:
+
+
+# Define networks outside services
+networks:
+  backend_net:
