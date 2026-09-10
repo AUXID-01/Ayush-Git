@@ -5,3 +5,6 @@ nginx page :
 
 # replicaset :
 ![alt text](image-2.png)
+
+# Deployment v1 and v2 :
+![alt text](image-3.png)
